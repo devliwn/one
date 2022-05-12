@@ -4,54 +4,66 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BeefStack</title>
-    <link rel="stylesheet" href="./style/style.css" />
+    <title>One UI Components</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      .oui-screen {
+        padding: 20px 0 20px 0;
+        background-color: #f2f2f2;
+      }
+    </style>
+    <link rel="stylesheet" href="../src/scss/one.css" />
   </head>
   <body>
-    <div class="alert alert-primary">This is a primary alert</div>
-    <div class="alert alert-secondary">This is a secondary alert</div>
-    <div class="alert alert-success">This is a success alert</div>
-    <div class="alert alert-danger">This is a danger alert</div>
-    <div class="alert alert-warning">This is a warning alert</div>
-    <div class="alert alert-info">This is a info alert</div>
-    <div class="alert alert-info">
-      <h1 class="alert-heading">This is alert title</h1>
-      This is <a href="#" class="alert-link">alert link</a>, you can give it a
-      click
-      <div class="alert-additional">This is additional content for alert</div>
+    <h1>Hello World</h1>
+    <div class="oui-screen">
+      <div class="oui-bubble" spacing="20">
+        <h1 class="oui-bubble-heading">Heading</h1>
+        <div class="oui-badge" background="#2084FE" foreground="#fff">New</div>
+        <div class="oui-badge oui-badge-num" size="30">10</div>
+        <div
+          class="oui-badge oui-badge-num"
+          background="green"
+          foreground="yellow"
+        >
+          10
+        </div>
+        <button
+          onclick="one.dialog({
+            title: 'Hello World',
+            content: 'Hello! This is a dialog, I have made it!!!!',
+            option1: link('Go to #', {href:'#'}),
+            option2: link('Go to Google', {href: 'https://google.com'})
+          })"
+        >
+          Click to show dialog
+        </button>
+        <form action="">
+          <label
+            class="oui-checkbox"
+            id="check"
+            value="Checkbox"
+            background="#2084fe"
+          ></label>
+          <label
+            class="oui-checkbox"
+            id="check"
+            value="Checkbox"
+            size="30"
+            background="red"
+            text="Hello World"
+          ></label>
+        </form>
+      </div>
     </div>
-    <h1>Example heading <span class="badge badge-secondary">New</span></h1>
-    <h2>Example heading <span class="badge badge-secondary">New</span></h2>
-    <h3>Example heading <span class="badge badge-secondary">New</span></h3>
-    <h4>Example heading <span class="badge badge-secondary">New</span></h4>
-    <h5>Example heading <span class="badge badge-secondary">New</span></h5>
-    <h6>Example heading <span class="badge badge-secondary">New</span></h6>
-    <span class="badge badge-primary">Primary</span>
-    <span class="badge badge-secondary">Secondary</span>
-    <span class="badge badge-success">Success</span>
-    <span class="badge badge-danger">Danger</span>
-    <span class="badge badge-warning">Warning</span>
-    <span class="badge badge-info">Info</span>
-    <span class="badge badge-light">Light</span>
-    <span class="badge badge-dark">Dark</span><br />
-    <span class="badge badge-rounded badge-primary">Primary</span>
-    <span class="badge badge-rounded badge-secondary">Secondary</span>
-    <span class="badge badge-rounded badge-success">Success</span>
-    <span class="badge badge-rounded badge-danger">Danger</span>
-    <span class="badge badge-rounded badge-warning">Warning</span>
-    <span class="badge badge-rounded badge-info">Info</span>
-    <span class="badge badge-rounded badge-light">Light</span>
-    <span class="badge badge-rounded badge-dark">Dark</span><br />
-    <a class="badge badge-link badge-primary">Primary</a>
-    <a class="badge badge-link badge-secondary">Secondary</a>
-    <a class="badge badge-link badge-success">Success</a>
-    <a class="badge badge-link badge-danger">Danger</a>
-    <a class="badge badge-link badge-warning">Warning</a>
-    <a class="badge badge-link badge-info">Info</a>
-    <a class="badge badge-link badge-light">Light</a>
-    <a class="badge badge-link badge-dark">Dark</a><br />
-    <button class="btn btn-primary">
-      Notication <span class="badge badge-light">69</span>
-    </button>
+    <script src="../src/js/one.js"></script>
   </body>
 </html>

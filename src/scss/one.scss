@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap");
+:root {
+  --font-roboto: 16px "Roboto flex";
+}
+* {
+  font: var(--font-roboto);
+}
+body {
+  position: relative;
+}
+.oui-bubble {
+  padding: 20px;
+  background-color: #fcfcfc;
+  border: 1px solid rgba($color: #000000, $alpha: 0.15);
+  box-shadow: 0 1px 3px 0 rgba($color: #000000, $alpha: 0.15);
+  border-radius: 20px;
+  &-heading {
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+}
+.oui-badge {
+  background-color: #2084fe;
+  color: #fff;
+  width: fit-content;
+  height: 25px;
+  min-width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 4px;
+  border-radius: calc(25px / 2);
+  box-shadow: 0 1px 3px 0 rgba($color: #000000, $alpha: 0.15);
+  margin: 6px;
+  &-num {
+    height: 30px;
+    min-width: 30px;
+    border-radius: calc(30px / 2);
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba($color: #f2f2f2, $alpha: 0.85);
+  z-index: 0;
+}
+.oui-checkbox {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 23px;
+  margin: 6px;
+  * {
+    transition: 0.2s ease;
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    --checked-fill: #2084fe;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 23px;
+    width: 23px;
+    border-radius: calc(23px / 4);
+    background-color: #f1f1f1;
+    border: 1px solid rgba($color: #000000, $alpha: 0.15);
+    &::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      top: 50%;
+      left: 50%;
+      width: 7px;
+      height: 15px;
+      border: solid #fff;
+      border-width: 0 3px 3px 0;
+      transform: translate(-50%, -0%) rotate(45deg);
+      transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+  &:hover {
+    input ~ .checkmark {
+      background-color: #ccc;
+    }
+  }
+  input:checked {
+    & ~ .checkmark {
+      background-color: var(--checked-fill);
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -60%) rotate(45deg) scale(1);
+      }
+    }
+  }
+  h4 {
+    margin-left: calc(23px + 4px);
+  }
+}
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 300px;
+  background-color: #fcfcfc;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba($color: #000000, $alpha: 0.15);
+  h1 {
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.08);
+    margin: 0 -20px;
+    padding: 20px;
+    padding-top: 0;
+  }
+  h3 {
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.08);
+    padding-bottom: 12px;
+    margin: 0 -20px;
+    padding: 20px;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    margin: -12px;
+    margin-top: 4px;
+    button {
+      cursor: pointer;
+      width: 50%;
+      background-color: rgba($color: #000000, $alpha: 0.05);
+      padding: 6px 12px;
+      height: 35px;
+      border-radius: calc(35px / 2);
+      margin: 4px;
+      text-decoration: none;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba($color: #000000, $alpha: 0.1);
+      transition: 0.2s ease;
+      &:hover {
+        background-color: rgba($color: #000000, $alpha: 0.09);
+        border-color: rgba($color: #000000, $alpha: 0.2);
+      }
+      a {
+        margin: -6px -12px;
+        padding: 6px 12px;
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+}
+@keyframes overlay {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes dialog {
+  from {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}

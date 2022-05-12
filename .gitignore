@@ -1,0 +1,8 @@
+# node modules folder
+node_modules/
+
+# scss .map file
+*.css.map
+
+# log file
+*.log

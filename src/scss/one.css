@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap");
+:root {
+  --font-roboto: 16px "Roboto flex";
+}
+
+* {
+  font: var(--font-roboto);
+}
+
+body {
+  position: relative;
+}
+
+.oui-bubble {
+  padding: 20px;
+  background-color: #fcfcfc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+}
+
+.oui-bubble-heading {
+  font-size: 25px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.oui-badge {
+  background-color: #2084fe;
+  color: #fff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 25px;
+  min-width: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2px 4px;
+  border-radius: calc(25px / 2);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  margin: 6px;
+}
+
+.oui-badge-num {
+  height: 30px;
+  min-width: 30px;
+  border-radius: calc(30px / 2);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(242, 242, 242, 0.85);
+  z-index: 0;
+}
+
+.oui-checkbox {
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 23px;
+  margin: 6px;
+}
+
+.oui-checkbox * {
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.oui-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.oui-checkbox .checkmark {
+  --checked-fill: #2084fe;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 23px;
+  width: 23px;
+  border-radius: calc(23px / 4);
+  background-color: #f1f1f1;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.oui-checkbox .checkmark::after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 15px;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: translate(-50%, 0%) rotate(45deg);
+          transform: translate(-50%, 0%) rotate(45deg);
+  -webkit-transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.oui-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.oui-checkbox input:checked ~ .checkmark {
+  background-color: var(--checked-fill);
+}
+
+.oui-checkbox input:checked ~ .checkmark::after {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -60%) rotate(45deg) scale(1);
+          transform: translate(-50%, -60%) rotate(45deg) scale(1);
+}
+
+.oui-checkbox h4 {
+  margin-left: calc(23px + 4px);
+}
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 300px;
+  background-color: #fcfcfc;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.dialog h1 {
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 0 -20px;
+  padding: 20px;
+  padding-top: 0;
+}
+
+.dialog h3 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 12px;
+  margin: 0 -20px;
+  padding: 20px;
+}
+
+.dialog .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 8px;
+  margin: -12px;
+  margin-top: 4px;
+}
+
+.dialog .buttons button {
+  cursor: pointer;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 6px 12px;
+  height: 35px;
+  border-radius: calc(35px / 2);
+  margin: 4px;
+  text-decoration: none;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.dialog .buttons button:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.dialog .buttons button a {
+  margin: -6px -12px;
+  padding: 6px 12px;
+  color: #000;
+  text-decoration: none;
+}
+
+@-webkit-keyframes overlay {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes overlay {
+  from {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes dialog {
+  from {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+    opacity: 0;
+  }
+}
+
+@keyframes dialog {
+  from {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=one.css.map */
